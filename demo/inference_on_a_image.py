@@ -187,6 +187,7 @@ if __name__ == "__main__":
     image_pil, image = load_image(image_path)
     # load model
     model = load_model(config_file, checkpoint_path, cpu_only=args.cpu_only)
+    model = model.to('cuda:0')
 
     # visualize raw image
     image_pil.save(os.path.join(output_dir, "raw_image.jpg"))
